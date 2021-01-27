@@ -1,0 +1,47 @@
+﻿@model IEnumerable<IndianDresses.Models.AvalibleStock>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stock Avalible</h1>
+
+<p>
+    <a asp-action="Create">Add Items</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvalibleSize)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvalibleSize)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StockID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StockID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StockID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
